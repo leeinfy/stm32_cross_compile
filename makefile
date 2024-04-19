@@ -18,5 +18,8 @@ stm32_startup.o:stm32_startup.c
 final.elf: main.o led.o stm32_startup.o
 	$(CC) $(LDFLAGS) $^ -o $@
 
+load:
+	openocd -f board/stm32f4discovery.cfg
+
 clean:
 	rm -rf *.o *.elf
